@@ -1,5 +1,6 @@
 package com.example.azuredemo;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,4 +20,8 @@ public class AzureDemoApplication {
 		return "Hello " + name;
 	}
 
+	@GetMapping("/user-agent")
+	public String userAgent(HttpServletRequest request) {
+		return request.getHeader("User-Agent");
+	}
 }
